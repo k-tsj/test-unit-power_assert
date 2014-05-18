@@ -1,0 +1,40 @@
+= test-unit-power_assert
+== About
+Power Assert for test-unit.
+
+==  Installation
+ $ git clone git://github.com/k-tsj/test-unit-power_assert.git
+ $ cd test-unit-power_assert
+ $ gem build test-unit-power_assert.gemspec
+ $ gem install test-unit-power_assert-*.gem
+
+or
+
+ $ gem install bundler (if you need)
+ $ echo "gem 'test-unit-power_assert, :git => 'git://github.com/k-tsj/test-unit-power_assert.git'" > Gemfile
+ $ bundle install --path vendor/bundle
+
+== Basic Usage
+=== Test Code
+
+ require 'test/unit'
+ require 'test/unit/power_assert'
+ class MyTest < Test::Unit::TestCase
+   def test_failed
+     power_assert do
+       "0".class == "3".to_i.times.map {|i| i + 1 }.class
+     end
+   end
+ end
+
+=== Result
+ Failure:
+
+         "0".class == "3".to_i.times.map {|i| i + 1 }.class
+             |            |    |     |                |
+             |            |    |     |                Array
+             |            |    |     [1, 2, 3]
+             |            |    #<Enumerator: 3:times>
+             |            3
+             String
+ test_failed(MyTest)
