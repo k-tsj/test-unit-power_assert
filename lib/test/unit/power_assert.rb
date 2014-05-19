@@ -8,7 +8,7 @@ module Test::Unit
   module PowerAssert
     RetValue = Struct.new(:method_id, :value, :colno)
 
-    TARGET_CALLER_DIFF = {return: 12, c_return: 11}
+    TARGET_CALLER_DIFF = {return: 5, c_return: 4}
     TARGET_CALLER_INDEX = {return: 3, c_return: 2}
 
     def assersion_message(line, methods, values)
@@ -89,7 +89,7 @@ module Test::Unit
 
     module Assertions
       def power_assert
-        base_caller_lengh = caller_locations.length
+        base_caller_lengh = -1
         path = nil
         lineno = nil
         line = nil
@@ -116,7 +116,10 @@ module Test::Unit
           alias to_s call
         end
         assert_block(prc) do
-          trace.enable { yield }
+          trace.enable do
+            base_caller_lengh = caller_locations.length
+            yield
+          end
         end
       end
     end
