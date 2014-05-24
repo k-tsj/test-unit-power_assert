@@ -7,7 +7,7 @@ module Test::Unit
   module PowerAssert
     module Assertions
       def power_assert(&blk)
-        ::PowerAssert.start do |pa|
+        ::PowerAssert.start(assertion_method: __method__) do |pa|
           class << pa.message_proc
             alias to_s call
           end
