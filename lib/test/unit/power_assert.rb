@@ -8,10 +8,11 @@ module Test::Unit
     module Assertions
       def power_assert(&blk)
         ::PowerAssert.start(blk, assertion_method: __method__) do |pa|
-          class << pa.message_proc
+          prc = pa.message_proc
+          class << prc
             alias to_s call
           end
-          assert_block(pa.message_proc) do
+          assert_block(prc) do
             pa.yield
           end
         end
