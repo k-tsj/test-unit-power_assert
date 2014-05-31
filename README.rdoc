@@ -3,6 +3,10 @@
 Power Assert for test-unit.
 
 == Installation
+ $ gem install test-unit-power_assert
+
+or
+
  $ gem install bundler (if you need)
  $ echo "source 'http://rubygems.org'" > Gemfile
  $ echo "gem 'power_assert', :git => 'git://github.com/k-tsj/power_assert.git'" >> Gemfile
@@ -21,6 +25,8 @@ Power Assert for test-unit.
      end
    end
  end
+
+Note: It is recommended to require test/unit/power_assert before _loading_ test code.
 
 === Result
  Failure:
