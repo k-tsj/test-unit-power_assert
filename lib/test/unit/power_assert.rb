@@ -7,12 +7,12 @@ module Test::Unit
   module PowerAssert
     module Assertions
       def power_assert(&blk)
-        ::PowerAssert.start(assertion_method: __method__) do |pa|
+        ::PowerAssert.start(blk, assertion_method: __method__) do |pa|
           class << pa.message_proc
             alias to_s call
           end
           assert_block(pa.message_proc) do
-            pa.yield(&blk)
+            pa.yield
           end
         end
       end
