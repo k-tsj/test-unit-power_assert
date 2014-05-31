@@ -39,3 +39,5 @@ Note: It is recommended to require test/unit/power_assert before _loading_ test 
              |            3
              String
  test_failed(MyTest)
+
+== Travis Build Status {<img src="https://secure.travis-ci.org/k-tsj/test-unit-power_assert.png"/>}[http://travis-ci.org/k-tsj/test-unit-power_assert]
