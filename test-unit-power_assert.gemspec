@@ -15,8 +15,7 @@ Gem::Specification.new do |s|
   s.executables      = `git ls-files -- bin/*`.split("\n").map{|f| File.basename(f) }
   s.require_paths    = ['lib']
   s.add_runtime_dependency 'test-unit'
-  # power_assert is not published to rubygems.org
-  # s.add_runtime_dependency 'power_assert'
+  s.add_runtime_dependency 'power_assert'
   s.extra_rdoc_files = ['README.rdoc']
   s.rdoc_options     = ['--main', 'README.rdoc']
 end
