@@ -20,7 +20,7 @@ or
  require 'test/unit/power_assert'
  class MyTest < Test::Unit::TestCase
    def test_failed
-     power_assert do
+     assert do
        "0".class == "3".to_i.times.map {|i| i + 1 }.class
      end
    end
@@ -31,13 +31,15 @@ Note: It is recommended to require test/unit/power_assert before _loading_ test 
 === Result
  Failure:
 
-         "0".class == "3".to_i.times.map {|i| i + 1 }.class
-             |            |    |     |                |
-             |            |    |     |                Array
-             |            |    |     [1, 2, 3]
-             |            |    #<Enumerator: 3:times>
-             |            3
-             String
+Failure:
+        "0".class == "3".to_i.times.map {|i| i + 1 }.class
+            |     |      |    |     |                |
+            |     |      |    |     |                Array
+            |     |      |    |     [1, 2, 3]
+            |     |      |    #<Enumerator: 3:times>
+            |     |      3
+            |     false
+            String
  test_failed(MyTest)
 
 == Travis Build Status {<img src="https://secure.travis-ci.org/k-tsj/test-unit-power_assert.png"/>}[http://travis-ci.org/k-tsj/test-unit-power_assert]
