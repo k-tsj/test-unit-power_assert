@@ -2,6 +2,8 @@
 == About
 Power Assert for test-unit.
 
+<b>As of test-unit 3.0.0, it has built-in support for Power Assert so test-unit-power_assert is no longer needed.</b>
+
 == Installation
  $ gem install test-unit-power_assert
 
@@ -30,8 +32,6 @@ Note: It is recommended to require test/unit/power_assert before _loading_ test 
 
 === Result
  Failure:
-
-Failure:
         "0".class == "3".to_i.times.map {|i| i + 1 }.class
             |     |      |    |     |                |
             |     |      |    |     |                Array
